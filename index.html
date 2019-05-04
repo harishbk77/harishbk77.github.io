@@ -1,1 +1,104 @@
-Hello SagesWorld :-) ... Are we back up?
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Bootstrap Components</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+      <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button">Home</button>
+	    <button class="btn btn-outline-success" type="button">Worklist</button>
+
+		    <button class="btn btn-outline-success" type="button">Dashboard</button>
+
+			    <button class="btn btn-outline-success" type="button">Reports</button>
+							    <button class="btn btn-outline-success" type="button">Admin</button>
+											    <button class="btn btn-outline-success" type="button">Search</button>
+
+  </form>
+</nav>
+
+<div class="alert alert-secondary" role="alert">
+  You cannot perform intake as you do not have the right priveleges
+</div>
+<div class="alert alert-success" role="alert">
+  Your Zoning Plan Review has been Approved
+</div>
+<div class="alert alert-danger" role="alert">
+  Review Cycle cannot be Approved as the Arborist Review is open
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    More Actions
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">View Application</a>
+    <a class="dropdown-item" href="#">Internal Notes</a>
+    <a class="dropdown-item" href="#">Enter Comment</a>
+  </div>
+  
+  	<br/>
+	  	<br/>
+  	<h2>Dashboard</h2>
+
+    <div class="row">
+  <div class="col-2">
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Waiting for Intake
+    <span class="badge badge-primary badge-pill">14</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+   In Progress
+    <span class="badge badge-primary badge-pill">2</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+   Ready for Approval
+    <span class="badge badge-primary badge-pill">1</span>
+  </li>
+</ul>
+</div>
+</div>
+
+	<br/>
+	<h2>Admin Tool</h2>
+  <div class="row">
+  <div class="col-2">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><h3>Hello Ken Boff!<h3></div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Profile form goes here</div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">You have (6) messages</div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Settings form goes here</div>
+    </div>
+  </div>
+</div>
+
+	<br/>
+	
+	<h2>Action Buttons</h2>
+<button type="button" class="btn btn-primary">Schedule Inspection</button>
+<button type="button" class="btn btn-secondary">Place Hold</button>
+<button type="button" class="btn btn-success">Perform Intake</button>
+<button type="button" class="btn btn-danger">Cancel Submission</button>
+<button type="button" class="btn btn-link">COA GIS</button>
+
+</body>
+</html>
