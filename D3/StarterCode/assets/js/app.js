@@ -2,10 +2,10 @@ var svgWidth = 960;
 var svgHeight = 500;
 
 var margin = {
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0
+  top: 20,
+  right: 40,
+  bottom: 60,
+  left: 100
 };
 
 var width = svgWidth - margin.left - margin.right;
@@ -70,9 +70,9 @@ d3.csv("data.csv")
     .append("circle")
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
-    .attr("r", "10")
-    .attr("fill", "blue")
-    .attr("opacity", ".25");
+    .attr("r", "15")
+    .attr("fill", "pink")
+    .attr("opacity", ".5");
 
     // Step 6: Initialize tool tip
     // ==============================
