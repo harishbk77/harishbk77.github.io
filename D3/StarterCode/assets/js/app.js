@@ -22,18 +22,9 @@ var svg = d3.select(".chart")
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-  d3.csv("data.csv").then(function(data) {
-      alert("Reading...");
-    console.log(data[0]);
-  });
-  
-
-
 // Import Data
 d3.csv("data.csv")
   .then(function(hairData) {
-
-    alert("Here...");
 
     //id,state,abbr,poverty,povertyMoe,age,ageMoe,income,incomeMoe,healthcare,healthcareLow,healthcareHigh,obesity,obesityLow,obesityHigh,smokes,smokesLow,smokesHigh,-0.385218228
     // `Healthcare vs. Poverty` or `Smokers vs. Age`
@@ -41,6 +32,7 @@ d3.csv("data.csv")
     // Step 1: Parse Data/Cast as numbers
     // ==============================
     hairData.forEach(function(data) {
+      console.log(data);
       data.healthcare = +data.healthcare;
       data.poverty = +data.poverty;
     });
@@ -111,10 +103,10 @@ d3.csv("data.csv")
       .attr("x", 0 - (height / 2))
       .attr("dy", "1em")
       .attr("class", "axisText")
-      .text("Number of Billboard 100 Hits");
+      .text("Lacks Healthcare %");
 
     chartGroup.append("text")
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
       .attr("class", "axisText")
-      .text("Hair Metal Band Hair Length (inches)");
+      .text("In Poverty %");
   });
