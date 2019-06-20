@@ -26,25 +26,27 @@ var chartGroup = svg.append("g")
 d3.csv("data.csv")
   .then(function(hairData) {
 
-    //id,state,abbr,poverty,povertyMoe,age,ageMoe,income,incomeMoe,healthcare,healthcareLow,healthcareHigh,obesity,obesityLow,obesityHigh,smokes,smokesLow,smokesHigh,-0.385218228
+      //id,state,abbr,poverty,povertyMoe,age,ageMoe,income,incomeMoe,healthcare,healthcareLow,healthcareHigh,obesity,obesityLow,obesityHigh,smokes,smokesLow,smokesHigh,-0.385218228
     // `Healthcare vs. Poverty` or `Smokers vs. Age`
 
     // Step 1: Parse Data/Cast as numbers
     // ==============================
     hairData.forEach(function(data) {
-      console.log(data);
       data.healthcare = +data.healthcare;
       data.poverty = +data.poverty;
     });
 
+    console.log(data.healthcare);
+    console.log(data.poverty);
+
     // Step 2: Create scale functions
     // ==============================
     var xLinearScale = d3.scaleLinear()
-      .domain([20, d3.max(hairData, d => d.hair_length)])
+      .domain([20, d3.max(hairData, d => d.healthcare)])
       .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
-      .domain([0, d3.max(hairData, d => d.num_hits)])
+      .domain([0, d3.max(hairData, d => d.poverty)])
       .range([height, 0]);
 
     // Step 3: Create axis functions
@@ -67,8 +69,8 @@ d3.csv("data.csv")
     .data(hairData)
     .enter()
     .append("circle")
-    .attr("cx", d => xLinearScale(d.hair_length))
-    .attr("cy", d => yLinearScale(d.num_hits))
+    .attr("cx", d => xLinearScale(d.healthcare))
+    .attr("cy", d => yLinearScale(d.poverty))
     .attr("r", "15")
     .attr("fill", "pink")
     .attr("opacity", ".5");
@@ -79,7 +81,7 @@ d3.csv("data.csv")
       .attr("class", "tooltip")
       .offset([80, -60])
       .html(function(d) {
-        return (`${d.rockband}<br>Hair length: ${d.hair_length}<br>Hits: ${d.num_hits}`);
+        return (`${d.state}<br>Hair length: ${d.healthcare}<br>Hits: ${d.num_hits}`);
       });
 
     // Step 7: Create tooltip in the chart
@@ -103,10 +105,10 @@ d3.csv("data.csv")
       .attr("x", 0 - (height / 2))
       .attr("dy", "1em")
       .attr("class", "axisText")
-      .text("Lacks Healthcare %");
+      .text("Lacks Healthcare (%)");
 
     chartGroup.append("text")
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
       .attr("class", "axisText")
-      .text("In Poverty %");
+      .text("In Poverty (%)");
   });
