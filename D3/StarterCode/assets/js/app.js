@@ -1,12 +1,12 @@
 var svgWidth = 960;
 var svgHeight = 500;
 
-// var margin = {
-//   top: 20,
-//   right: 40,
-//   bottom: 60,
-//   left: 100
-// };
+var margin = {
+  top: 20,
+  right: 40,
+  bottom: 60,
+  left: 100
+};
 
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
@@ -41,11 +41,11 @@ d3.csv("data.csv")
     // Step 2: Create scale functions
     // ==============================
     var xLinearScale = d3.scaleLinear()
-      .domain([20, d3.max(hairData, d => d.healthcare)])
+      .domain([20, d3.max(hairData, d => d.poverty)])
       .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
-      .domain([0, d3.max(hairData, d => d.poverty)])
+      .domain([0, d3.max(hairData, d => d.healthcare)])
       .range([height, 0]);
 
     // Step 3: Create axis functions
@@ -68,8 +68,8 @@ d3.csv("data.csv")
     .data(hairData)
     .enter()
     .append("circle")
-    .attr("cx", d => xLinearScale(d.healthcare))
-    .attr("cy", d => yLinearScale(d.poverty))
+    .attr("cx", d => xLinearScale(d.poverty))
+    .attr("cy", d => yLinearScale(d.healthcare))
     .attr("r", "15")
     .attr("fill", "pink")
     .attr("opacity", ".5");
