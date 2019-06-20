@@ -36,8 +36,7 @@ d3.csv("data.csv")
       data.poverty = +data.poverty;
     });
 
-    console.log(data.healthcare);
-    console.log(data.poverty);
+
 
     // Step 2: Create scale functions
     // ==============================
