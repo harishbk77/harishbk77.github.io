@@ -1,12 +1,12 @@
 var svgWidth = 960;
 var svgHeight = 500;
 
-var margin = {
-  top: 20,
-  right: 40,
-  bottom: 60,
-  left: 100
-};
+// var margin = {
+//   top: 20,
+//   right: 40,
+//   bottom: 60,
+//   left: 100
+// };
 
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
@@ -80,7 +80,7 @@ d3.csv("data.csv")
       .attr("class", "tooltip")
       .offset([80, -60])
       .html(function(d) {
-        return (`${d.state}<br>Hair length: ${d.healthcare}<br>Hits: ${d.num_hits}`);
+        return (`${d.state}<br>Healthcare: ${d.healthcare}<br>Poverty: ${d.poverty}`);
       });
 
     // Step 7: Create tooltip in the chart
